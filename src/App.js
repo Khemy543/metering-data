@@ -1,26 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+// import {Header} from './components/header';
+// import {Node} from './components/node';
+// import {Homepage} from './pages/homepage';
+// import {Slider} from './components/slider';
+// import {Nodepage} from './pages/nodepage';
+// import {Login} from './pages/loginpage';
+// import {Stats} from './pages/statisticpage';
+// import {Report} from './pages/reportpage';
+import { Routers } from './route';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return <Routers />;
+  }
 }
 
 export default App;
+
