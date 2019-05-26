@@ -1,9 +1,5 @@
 import React from 'react';
-import { Form, Icon, Select , Button, Card } from 'antd';
-import { Menu, Switch } from 'antd';
-import { Redirect } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import ReactToPrint from "react-to-print";
+import { Form } from 'antd';
 import '../styles/report.css'
 
 

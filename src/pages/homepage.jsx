@@ -1,17 +1,12 @@
 import React from 'react';
-import { Form, Icon, Select, Button, Card } from 'antd';
-import { Menu, Switch } from 'antd';
-import { Redirect } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Form } from 'antd';
 import { Header } from '../components/header';
 import { Node } from '../components/node';
 import { Slider } from '../components/slider';
 import '../styles/homepage.css';
 import axios from 'axios';
-import Item from 'antd/lib/list/Item';
 
 
-//const axios = require('axios')
 
 const getAllNodesFromServer = async () => {
   try {
@@ -60,11 +55,6 @@ class homepage extends React.Component {
    
    }
 
-  /*handleAddNode = () => {
-    this.setState({
-      nodes: [...this.state.nodes, 1]
-    });
-
-  };*/
+  
 }
 export const Homepage = Form.create()(homepage);

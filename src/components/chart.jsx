@@ -1,10 +1,25 @@
 import React, { Component } from 'react';
 import { Bar, Line, Pie } from 'react-chartjs-2';
 import { Form } from 'antd';
+import axios from 'axios';
+
 
 
 
 class chart extends React.Component {
+
+    componentDidMount( ) {
+        axios.get('https://project-backend-knust.herokuapp.com/nodeFL')
+    .then(response => {
+        const chartItems = response.data;
+        console.log(chartItems);
+        }) 
+    .catch(error => {
+        console.log(error);
+    });
+    }
+
+     
 
     constructor(props) {
         super(props);
@@ -63,4 +78,6 @@ class chart extends React.Component {
         );
     }
 }
+
+
 export const Chart = Form.create()(chart);

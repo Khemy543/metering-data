@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Progress, } from 'antd';
 import { Header } from '../components/header';
 import { Slider } from '../components/slider';
-import { Bar, Line, Pie } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 import '../styles/nodepage.css';
 import axios from 'axios';
 

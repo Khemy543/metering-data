@@ -15,8 +15,7 @@ class slider extends React.Component {
                     <ul>
                         <li><Link to="/homepage">Dashboard</Link></li>
                         <li><Link to="/stats">Statistics</Link></li>
-                        <li><Link to="/report">Reports</Link></li>
-                        <li><Link to="/settings">Settings</Link></li>
+                        <li><Link to="/report">Billing</Link></li>
                         <li><Link to="/about">About Us</Link></li>
                     </ul>
 

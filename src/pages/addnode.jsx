@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form , Input , Select, Row, Col, Icon, Button}  from 'antd';
+import { Form }  from 'antd';
 import { Header } from '../components/header';
 import { Slider } from '../components/slider';
 import '../styles/addnode.css'
@@ -61,7 +61,7 @@ class addnode extends React.Component {
 		axios.post('https://project-backend-knust.herokuapp.com/newnode', {
             Owners_Name,Meter_ID,Location,Mobile,Email,Address
 		}).then(res => {
-            if(res.status==200){
+            if(res.status===200){
                 alert("Created Node Successfully");
                 this.props.history.push('/homepage');
             }

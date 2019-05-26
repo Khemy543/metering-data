@@ -1,22 +1,6 @@
 import React from 'react';
-import {
-	Form,
-	Input,
-	Tooltip,
-	Icon,
-	Select,
-//	Row,
-//	Col,
-//	Checkbox,
-//	Button,
-//	AutoComplete,
-//	Card,
-//	Progress
-} from 'antd';
-//import { Menu, Switch } from 'antd';
-//import { Redirect } from 'react-router-dom';
-//import { Link } from 'react-router-dom';
-import axios from 'axios';
+import {Form , Button} from 'antd';
+
 import '../styles/loginpage.css';
 
 async function post(url, data) {
@@ -40,9 +24,23 @@ class login extends React.Component {
 		super();
 		this.state = {
 			UserName: '',
-			Password: ''
+			Password: '',
+			
 		};
 	}
+	state ={
+		loading: false,
+		iconLoading: false,
+		};
+
+		enterLoading = e =>{
+			this.setState({loading:true});
+			this.onSubmit(e);
+		};
+
+		enterIconLoading = () =>{
+			this.setState({iconLoading:true});
+		};
 
 	onChange = e => {
 		e.persist();
@@ -63,51 +61,22 @@ class login extends React.Component {
 				}
 		};
 
-		// var credentials = {
-		// 	'Username': 'Dopant',
-		// 	'Password' : '1105'
-		// };
 		post('https://project-backend-knust.herokuapp.com/login', {
 			userName, password
 		}).then(res => {
 			if(res.status === 201){
-				alert("Successful Login");
+				
 				this.props.history.push('/homepage');
 			}
-			else{
+			else
+			{
 				setTimeout(function(){ alert(res.message)}, 100);
-				this.props.history.push('/');
+				this.props.history.go(0);
+				
 			}
 
 		}).catch(console.log);
 
-/*
-		axios
-			.post('http://localhost:5000/login', {UserName, Password}, config)
-			//.then(data => console.log(data))
-			
-			.then((result) => {
-				console.log(result)
-			//	console.log("The function didnt work");
-				//console.log(result.data);
-				if(result.data.status === 201)
-				{
-					this.props.history.push('/homepage');
-				}
-				else 
-				{
-					setTimeout(function(){ alert(result.data.message)}, 100);
-					this.props.history.push('/');
-				}
-				
-				
-				
-			}
-		
-	)
-			
-			.catch(error => console.log(error));
-			*/
           
 	};
 	
@@ -145,11 +114,13 @@ class login extends React.Component {
 							<input type="checkbox" id="checkbox" />
 							Remember me
 						</div>
-						<div className="button">
-							<button type="submit" id="button" onClick={this.onSumit}>
+						<div >
+							<Button  id="button" loading={this.state.loading} onClick={this.enterLoading}> 
 								Login
-							</button>
+							</Button>
 						</div>
+						<p> </p>
+						
 					</form>
 				</div>
 			</div>

@@ -1,6 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Router, Switch } from 'react-router-dom';
-import {BrowseHistory,router,indexedRoute} from 'react-router';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Login }  from '../src/pages/loginpage';
 import { Homepage }  from '../src/pages/homepage';
 import {Report} from './pages/reportspage';
@@ -21,7 +20,7 @@ export const Routers =() =>
         <Route exact path='/report' component={Report} />
         <Route exact path='/stats' component={Stats} />
         <Route exact path='/nodepage' component={Nodepage} />
-         <Route exact path='/settings' component={Settings} />
+        <Route exact path='/settings' component={Settings} />
         <Route exact path='/about' component={About} />
         <Route exact path='/registernode' component={Addnode} />
         </Switch>

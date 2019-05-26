@@ -2,8 +2,19 @@ import React from 'react';
 import { Form , Icon, Dropdown, Menu, Popconfirm, message}  from 'antd';
 import { Link } from 'react-router-dom';
 import 'antd/dist/antd.css';
-import '../styles/header.css'
+import '../styles/header.css';
+import axios from 'axios';
 
+const logout = async () => {
+  try {
+    const res = await
+    axios.get('https://project-backend-knust.herokuapp.com/logout')
+    return res.data;
+
+  } catch (error) {
+  console.error(error)
+  }
+}
 
 function confirm(e) {
   console.log(e);
@@ -19,16 +30,9 @@ function cancel(e) {
 
 const menu = (
   <Menu style={{ paddingTop:"40px"}}>
-    <Menu.Item key="0">
-      <Link to="#">Account</Link>
-    </Menu.Item>
     <Menu.Item key="1">
-      <Link to="/settings">Settings</Link>
-    </Menu.Item>
-    <Menu.Divider />
-    <Menu.Item key="2">
-    <Popconfirm title="Are you sure you want to logout?" onConfirm={confirm} onCancel={cancel} okText="Yes" cancelText="No">
-    <Link to="/">Log Out</Link>
+    <Popconfirm title="Are you sure you want to logout?" onConfirm={logout()} onCancel={cancel} okText="Yes" cancelText="No">
+    <Link to="/settings">Log Out</Link>
     </Popconfirm>
     </Menu.Item>
   </Menu>
@@ -55,7 +59,7 @@ class header extends React.Component {
 
         <div className="icons">
         <Link to="/registernode" style={{color:"#242424"}}>
-        <Icon type="plus" style={{ paddingLeft: "20px", backgroundColor: "white", fontSize: "17px" }} /*onClick={this.props.onAddNode}*/ />
+        <Icon type="plus" style={{ paddingLeft: "20px", backgroundColor: "white", fontSize: "17px" }} />
         </Link>
         <Icon type="mail" style={{ paddingLeft: "20px", backgroundColor: "white", fontSize: "17px" }} />
 

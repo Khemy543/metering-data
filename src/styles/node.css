@@ -1,8 +1,8 @@
 .node{
     background-color: rgb(255, 255, 255);
     background-size:cover;
-    height: 270px;
-    width:300px;
+    
+    width:380px;
     border-radius:7px;
     box-shadow: 7px 7px 5px 0px rgba(175, 174, 174, 0.75);
     border-top: 3px solid #f7f7f7;
@@ -21,7 +21,7 @@
 
 #app{
     position: relative;
-    left: 50px;
+    left: 90px;
     bottom:20px;
 }
 
