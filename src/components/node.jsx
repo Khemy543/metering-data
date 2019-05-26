@@ -32,7 +32,7 @@ class node extends React.Component {
       <div>
         
       <div className="node" onClick={this.onDetailView}>
-        <h3 class="text-center" style={{ margin: "5px 10px" , fontSize:"15px"}}>METER_ID :     {this.props.MeterID}</h3>
+        <h3 class="text-center" style={{ margin: "5px 10px" , fontSize:"12px", color:"rgba(36, 35, 35, 0.3)"}}>Meter ID   <h4 style={{fontSize:"20px"}}> {this.props.MeterID}</h4> </h3>
         <div class="text-center" id="app">
           <CircularProgressBar
             strokeWidth="5"

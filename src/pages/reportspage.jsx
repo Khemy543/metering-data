@@ -128,11 +128,11 @@ onSubmit = e => {
 
             <RangePicker onChange={onChange} id ="date"/>
 
-            <Button id = "btn" onClick={this.onSumit}>Generate</Button>
+            <Button id = "btn" onClick={this.onSumit} >Generate</Button>
            
             <div>
             <ReactToPrint
-            trigger={() => <Link to="#" style={{ left: "850px", position: "relative", top: "-46px", listStyle: "none"}}><input type="button" value="Print" style={{height:"30px", width:"60px" , cursor:"pointer", color:"#575656"}} /></Link>}
+            trigger={() => <Link to="#" style={{ left: "850px", position: "relative", top: "-46px", listStyle: "none"}}><Button type="primary" style={{height:"30px", width:"60px" , cursor:"pointer"}}>Print</Button></Link>}
             content={() => this.componentRef}
           />
           </div>
