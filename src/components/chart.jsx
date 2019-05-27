@@ -7,34 +7,33 @@ import axios from 'axios';
 
 
 class chart extends React.Component {
+    
+
+    constructor(props){
+        super(props);
+        this.state = {
+            chartData:{}
+        }
+    }
 
     componentDidMount( ) {
         axios.get('https://project-backend-knust.herokuapp.com/nodeFL')
     .then(response => {
         const chartItems = response.data;
         console.log(chartItems);
-        }) 
-    .catch(error => {
-        console.log(error);
-    });
-    }
-
-     
-
-    constructor(props) {
-        super(props);
-        this.state = {
+        let meterIDs = [];
+        let liters = [];
+       chartItems.forEach(element =>{
+           meterIDs.push(element.Meter_ID);
+           liters.push(element.Liters);
+       });
+       this.setState({
             chartData: {
-                labels: ['Node 1', 'Node 2', 'Node 3', 'Node 4'],
+                labels: meterIDs,
                 datasets: [
                     {
-                        label: 'Nodes',
-                        data: [
-                            417594,
-                            181045,
-                            253060,
-                            300000
-                        ],
+                        label: 'Litres',
+                        data: liters,
 
                         backgroundColor: [
                             '#151719',
@@ -47,8 +46,15 @@ class chart extends React.Component {
                     }
                 ]
             }
-        }
+        });
+     });
+
+    
     }
+
+     
+
+   
 
     static defaultProps = {
         displayTitle: true,
@@ -59,11 +65,15 @@ class chart extends React.Component {
         return (
             <div className="chart">
                 <Bar
+                style={{
+                    width:"500px",
+                    height:"800px"
+                }}
                     data={this.state.chartData}
                     options={{
                         title: {
                             display: this.props.displayTitle,
-                            text: 'All Nodes',
+                            text: 'Liters / Meter ID',
                             fontSize: 25
                         },
                         legend: {

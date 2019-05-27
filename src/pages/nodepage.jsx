@@ -16,6 +16,17 @@ const getNodeDetails = async (id) => {
   }
 }
 
+const getRates = async (id) => {
+  try{
+    const res = await axios.get('https://project-backend-knust.herokuapp.com/Flowrate/'+id)
+    console.log(res.data);
+    return res.data;
+
+  }catch(error){
+    console.error(error)
+  }
+
+  }
  
 
 class nodepage extends React.Component {
@@ -23,29 +34,10 @@ class nodepage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      chartData: {
-        labels: ['0', '1', '2', '3', '4', '5', '6'],
-        datasets: [
-          {
-            label: 'Nodes',
-            data: [
-              0,
-              381045,
-              100000,
-              300000,
-              50032,
-              673789,
-              0,
-            ],
-
-            backgroundColor: [
-              'rgb(73, 60, 255)',
-
-
-            ]
-          }
-        ]
-      },
+      data:  [
+      ],
+      labels: [],
+      
       Owners_Name: "",
       Location: "",
       Mobile:"",
@@ -61,6 +53,19 @@ class nodepage extends React.Component {
   }
 
   render() {
+    const chartData = {
+      labels: this.state.labels,
+      datasets: [
+        {
+          label: 'Nodes',
+          data: this.state.data,
+
+          backgroundColor: [
+            'rgb(73, 60, 255)',
+          ]
+        }
+      ]
+    };
     return (
       <div className="node-body">
       <div>
@@ -146,7 +151,7 @@ class nodepage extends React.Component {
                   marginLeft: "75px",
                   marginTop: "30px"
                 }} 
-                percent={75}
+                percent={50}
                 format={percent => `${percent} Days`}
                 width={180}
 
@@ -158,7 +163,7 @@ class nodepage extends React.Component {
             <div className="chart">
 
               <Line
-                data={this.state.chartData}
+                data={chartData}
                 options={{
                   title: {
                     display: this.props.displayTitle,
@@ -191,8 +196,14 @@ class nodepage extends React.Component {
       Mobile:data.Mobile,
       Email:data.Email,
       Address:data.Address
-      } ))
-    ;
+      } ));
+
+      getRates(this.props.location.state.meterId).then(res => {
+        const data = res.map(item => item.Flowrate);
+        const labels = res.map((_, index) => (index + 1).toString())
+        this.setState({data, labels})
+      })
+      
    console.log(this.props.MeterID);
    
    }

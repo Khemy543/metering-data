@@ -18,7 +18,7 @@ class statistics extends React.Component {
         <div className="stats-main">
           <Slider />
           <div className="stats-content">
-            <div className="value">
+            {/* <div className="value">
               <div className="progress">
                 <Progress />
               </div>
@@ -26,7 +26,7 @@ class statistics extends React.Component {
                 <h3>rate flow</h3>
                 <h3>litres</h3>
               </div>
-            </div>
+            </div> */}
             <div className="show-chart">
               <Chart />
             </div>

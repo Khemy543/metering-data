@@ -28,15 +28,11 @@ async function post(url, data) {
 
 const {  RangePicker } = DatePicker;
 
-function onChange(date, dateString) {
-  console.log(date, dateString);
-}
+
 
 const Option = Select.Option;
 
-// function handleChange(value) {
-//   console.log(`selected ${value}`);
-// }
+ 
 
 class report extends React.Component {
 
@@ -44,8 +40,8 @@ class report extends React.Component {
 		super();
 		this.state = {
            Meter_ID:"",
-           time1:"",
-           time2:"",
+           time1: "",
+           time2: "",
            meterids: [],
            time1 : "",
            time2 : "",
@@ -53,15 +49,24 @@ class report extends React.Component {
             };
     }
 
-  state = {
-   
-  };
+    handleChange(value) {
+      console.log(value);
+      //this.setState({ selectedID : value});
+      
+      
+   }
+
+
+   onChange(date, dateString) {
+    console.log(date.map(d => d.toString()),dateString.map(ds => ds.toString()));
+  }
+
 
   componentDidMount( ) {
     axios.get('https://project-backend-knust.herokuapp.com/Meter')
 .then(response => {
   //console.log(response.data);
-  const meterIds = response.data;
+  let meterIds = response.data;
   this.setState({meterids: meterIds})
   })
   .catch(error => {
@@ -88,7 +93,7 @@ onSubmit = e => {
           Meter_ID,time1,time2
   }).then(res => {
           if(res.status===200){
-              alert("Created Node Successfully");
+              alert("biiinb");
              
           }
           else
@@ -119,14 +124,18 @@ onSubmit = e => {
           <div id="generator" onSubmit={this.onSubmit}>
               
           <div id = "selector">
-          <Select value = {this.state.selectedID} style={{ width: 120 }} onChange={(e) => this.setState({selectedID: e.target.Meter_ID})}>
-            {this.state.meterids.map((item) => <Option key = {item.Meter_ID}>{item.Meter_ID}</Option>)}
+          <Select defaultValue = {this.state.selectedID} style={{ width: 120 }} onChange={this.handleChange}>
+            {this.state.meterids.map((item) => <Option key = {item.Meter_ID} value={item.Meter_ID}>{item.Meter_ID}</Option>)}
              </Select>
          
           </div>
             
 
-            <RangePicker onChange={onChange} id ="date"/>
+            <RangePicker 
+            onChange={this.onChange} 
+            id ="date"
+            selected = {this.state.startDate}
+            />
 
             <Button id = "btn" onClick={this.onSumit} >Generate</Button>
            

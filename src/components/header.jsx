@@ -9,7 +9,10 @@ const logout = async () => {
   try {
     const res = await
     axios.get('https://project-backend-knust.herokuapp.com/logout')
-    return res.data;
+    .then(res =>{
+      console.log(res.data);
+      this.props.history.push('/');
+          })
 
   } catch (error) {
   console.error(error)
@@ -54,7 +57,7 @@ class header extends React.Component {
         
 
         <div className="search">
-          <input type="search" name="search" placeholder="  search" id="search" />
+          <input type="search" name="search" placeholder="  search Meter ID" id="search" />
         </div>
 
         <div className="icons">
