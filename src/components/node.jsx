@@ -24,24 +24,24 @@ class node extends React.Component {
   }
 
   onDetailView = () => {
-    this.props.history.push('/nodepage', {meterId: this.props.MeterID , flowRate: this.props.flowRate, litres:this.props.litres} )
+    this.props.history.push('/nodepage', { meterId: this.props.MeterID, flowRate: this.props.flowRate, litres: this.props.litres })
   }
 
   render() {
     return (
       <div>
-        
-      <div className="node" onClick={this.onDetailView}>
-        <h3 class="text-center" style={{ margin: "5px 10px" , fontSize:"12px", color:"rgba(36, 35, 35, 0.3)"}}>Meter ID   <h4 style={{fontSize:"20px"}}> {this.props.MeterID}</h4> </h3>
-        <div class="text-center" id="app">
-          <CircularProgressBar
-            strokeWidth="5"
-            sqSize="200"
-            percentage={this.props.flowRate} />
-           
+
+        <div className="node" onClick={this.onDetailView}>
+          <h3 class="text-center" style={{ margin: "5px 10px", fontSize: "12px", color: "rgba(36, 35, 35, 0.3)" }}>Meter ID   <h4 style={{ fontSize: "20px" }}> {this.props.MeterID}</h4> </h3>
+          <div class="text-center" id="app">
+            <CircularProgressBar
+              strokeWidth="5"
+              sqSize="200"
+              percentage={this.props.flowRate} />
+
+          </div>
         </div>
-      </div>
-      
+
       </div>
     );
   }

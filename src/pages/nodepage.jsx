@@ -106,13 +106,13 @@ class nodepage extends React.Component {
 
             <div className="flow">
               <div id="progress" style={{
-                width: "342px",
+                width: "515px",
                 height: "250px",
                 border: "1px solid rgb(197, 197, 197)",
                 backgroundColor: "white",
               }}>
                 <Progress type="circle" style={{
-                  marginLeft: "75px",
+                  marginLeft: "155px",
                   marginTop: "30px",
 
                 }}
@@ -124,14 +124,14 @@ class nodepage extends React.Component {
 
 
               <div id="progress" style={{
-                width: "342px",
+                width: "515px",
                 height: "250px",
                 border: "1px solid rgb(197, 197, 197)",
                 backgroundColor: "white",
 
               }}>
                 <Progress type="circle" style={{
-                  marginLeft: "75px",
+                  marginLeft: "155px",
                   marginTop: "30px"
                 }} 
                 percent={this.props.location.state.flowRate}
@@ -139,15 +139,15 @@ class nodepage extends React.Component {
                 width={180}
                 />
               </div>
-
+{/* 
               <div id="progress" style={{
                 width: "342px",
                 height: "250px",
-                border: "1px solid rgb(197, 197, 197)",
+                border: "",
                 backgroundColor: "white",
 
               }}>
-                <Progress type="circle" style={{
+                 <Progress type="circle" style={{
                   marginLeft: "75px",
                   marginTop: "30px"
                 }} 
@@ -156,8 +156,9 @@ class nodepage extends React.Component {
                 width={180}
 
 
-                />
+                />  
               </div>
+              */}
 
             </div>
             <div className="chart">

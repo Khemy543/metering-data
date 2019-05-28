@@ -7,54 +7,54 @@ import axios from 'axios';
 
 
 class chart extends React.Component {
-    
 
-    constructor(props){
+
+    constructor(props) {
         super(props);
         this.state = {
-            chartData:{}
+            chartData: {}
         }
     }
 
-    componentDidMount( ) {
+    componentDidMount() {
         axios.get('https://project-backend-knust.herokuapp.com/nodeFL')
-    .then(response => {
-        const chartItems = response.data;
-        console.log(chartItems);
-        let meterIDs = [];
-        let liters = [];
-       chartItems.forEach(element =>{
-           meterIDs.push(element.Meter_ID);
-           liters.push(element.Liters);
-       });
-       this.setState({
-            chartData: {
-                labels: meterIDs,
-                datasets: [
-                    {
-                        label: 'Litres',
-                        data: liters,
+            .then(response => {
+                const chartItems = response.data;
+                console.log(chartItems);
+                let meterIDs = [];
+                let liters = [];
+                chartItems.forEach(element => {
+                    meterIDs.push(element.Meter_ID);
+                    liters.push(element.Liters);
+                });
+                this.setState({
+                    chartData: {
+                        labels: meterIDs,
+                        datasets: [
+                            {
+                                label: 'Litres',
+                                data: liters,
 
-                        backgroundColor: [
-                            '#151719',
-                            '#ff0000',
-                            '#3002f8',
-                            '#00fc4c'
-                            
+                                backgroundColor: [
+                                    '#151719',
+                                    '#ff0000',
+                                    '#3002f8',
+                                    '#00fc4c'
 
+
+                                ]
+                            }
                         ]
                     }
-                ]
-            }
-        });
-     });
+                });
+            });
 
-    
+
     }
 
-     
 
-   
+
+
 
     static defaultProps = {
         displayTitle: true,
@@ -65,10 +65,10 @@ class chart extends React.Component {
         return (
             <div className="chart">
                 <Bar
-                style={{
-                    width:"500px",
-                    height:"800px"
-                }}
+                    style={{
+                        width: "500px",
+                        height: "800px"
+                    }}
                     data={this.state.chartData}
                     options={{
                         title: {
@@ -77,7 +77,7 @@ class chart extends React.Component {
                             fontSize: 25
                         },
                         legend: {
-                           display: this.props.displayLegend,
+                            display: this.props.displayLegend,
                             position: 'right'
                         }
                     }}

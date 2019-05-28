@@ -59,6 +59,7 @@ class report extends React.Component {
 
    onChange(date, dateString) {
     console.log(date.map(d => d.toString()),dateString.map(ds => ds.toString()));
+    
   }
 
 
@@ -155,4 +156,3 @@ onSubmit = e => {
 export const Report = Form.create()(report);
 
 
-// '/getBillings/'+this.state.selectedID+'/'+this.state.time1+'/'+this

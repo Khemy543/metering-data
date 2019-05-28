@@ -11,7 +11,7 @@ class slider extends React.Component {
         return (
             <div>
                 <div id="sidebar">
-                 
+
                     <ul>
                         <li><Link to="/homepage">Dashboard</Link></li>
                         <li><Link to="/stats">Statistics</Link></li>

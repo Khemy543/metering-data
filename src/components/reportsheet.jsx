@@ -12,13 +12,13 @@ class reportsheet extends React.Component {
         <table width="100%">
           <tr>
             <th rowSpan="3">Node Information</th>
-            <td>Node Name :   All Nodes</td>
+            <td>Node Name :   2122</td>
           </tr>
           <tr>
-            <td>Location:   (none)</td>
+            <td>Location:   Adum</td>
           </tr>
           <tr>
-            <td>Customer:   (none)</td>
+            <td>Customer:   Dr.E. Keelson</td>
           </tr>
 
 
